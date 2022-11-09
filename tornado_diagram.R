@@ -53,12 +53,10 @@ ggsave(filename="plot1.jpg", dpi=500, height=4, width=5)
 
 #version of tornado graph with shading by whether param is min or max
 ggplot(data=output) + 
-  geom_rect(data=output,
-            aes(xmin=as.numeric(param_lab2)-width/2, 
+  geom_rect(aes(xmin=as.numeric(param_lab2)-width/2, 
                 xmax=as.numeric(param_lab2)+width/2, 
                 ymin=icer_min, ymax=icer_main, fill="Parameter Lower bound")) +
-  geom_rect(data = output,
-            aes(xmin=as.numeric(param_lab2)-width/2, 
+  geom_rect(aes(xmin=as.numeric(param_lab2)-width/2, 
                 xmax=as.numeric(param_lab2)+width/2, 
                 ymin=icer_main, ymax=icer_max, fill="Parameter Upper bound")) +
   geom_hline(yintercept=icer_main) +
